@@ -15,8 +15,9 @@ async function selectWithJoins() {
   const authorNamesAndTheirFriends = `SELECT a.author_name 
     AS author_name,
     b.author_name AS friend_name
-    FROM Authors a, Authors b 
-    WHERE a.author_no = b.friend`;
+    FROM Authors a
+    LEFT JOIN Authors b 
+    ON a.author_no = b.friend`;
   const authorsAndTheirResearchPapersTitle = `SELECT a.author_name,
      rp.paper_title 
      FROM Authors a 
